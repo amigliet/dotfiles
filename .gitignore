@@ -1,0 +1,15 @@
+## Ignore backup folder
+backup.d/
+
+## Ignore sensitive data
+conf.d/ssh/config.d/*
+conf.d/ssh/keys.d/*
+conf.d/ssh/known_hosts
+conf.d/ssh/socket.d/*
+
+conf.d/vim/.netrwhist
+conf.d/vim/backup/*
+conf.d/vim/swap/*
+
+## Do not ignore .gitkeep files
+!.gitkeep

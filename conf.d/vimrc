@@ -1,0 +1,107 @@
+" ~/.vimrc
+
+" Make Vim no Vi-compatible
+set nocompatible
+
+" Enable syntax highlighting on a dark background
+syntax on
+set background=dark
+set textwidth=80
+
+" Alignment
+hi ColorColumn ctermbg=darkgrey
+set colorcolumn=80
+
+" Indentation/Tab
+set autoindent
+set smartindent
+set expandtab
+set smarttab
+set tabstop=2
+set shiftwidth=2
+
+" Incremental and highlight search
+set incsearch
+set hlsearch
+
+set ignorecase
+set smartcase
+
+" Allow buffers to be hidden
+set hidden
+
+" Default history value is 20
+set history=500
+
+" Press F12 before pasting text to avoid crazy indentation
+set pastetoggle=<F12>
+
+" Show matching brackets
+set showmatch
+
+" Always show status bar
+set laststatus=2
+set statusline=%<\ %{expand('%:h')}/%t%m%r%=%-14.(%l,%c%V%)\ %p%%
+
+" Enable wildmenu
+set wildmenu
+set wildignore+=*.o,*.x,*~,*.pyc
+set wildignorecase
+set wildmode=full
+
+" Set backup
+set backup
+set backupdir=~/.vim/backup
+"set directory=~/.vim/swap
+set noswapfile
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Remove trailing spaces
+function! TrimWhiteSpaces()
+    if search('\s\+$','bn') > 0
+        %s/\s\+$//
+    endif
+endfunction
+
+if has("autocmd")
+    " Jump to the last position when reopening a file
+    au BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \    exe "normal! g'\"" |
+    \ endif
+
+    augroup Shebang
+        autocmd BufNewFile *.sh 0put =\"#!/bin/bash\"|$
+        autocmd BufNewFile *.py 0put =\"#!/usr/bin/env python\"|$
+    augroup END
+
+    autocmd BufWritePre * call TrimWhiteSpaces()
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Key mapping
+let mapleader = ";"
+
+"" Insert & Command-line modes
+""" Bash keybindings
+map! <C-a> <Home>
+map! <C-e> <End>
+
+"" Normal mode
+nmap <Leader>b :buffer *
+nmap <Leader>l :ls<CR>
+nmap <S-k>     :bn<CR>
+nmap <S-j>     :bp<CR>
+nmap <Leader>k :bdelete<CR>
+nmap <Leader>v :vsplit<CR>
+nmap <F5>      :e!<CR>
+nmap <Leader>w :w!<CR>
+
+"" Normal, Visual, Select, Operator-pending modes
+""" Disable highlight when <Leader><CR> is pressed
+map <silent> <Leader><CR> :noh<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General abbreviations
+iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<CR>
+

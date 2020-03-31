@@ -1,0 +1,10 @@
+
+Host *
+  ControlMaster auto
+  ControlPath ~/.ssh/socket.d/master-%r@%h:%p
+  ControlPersist 5
+  ServerAliveInterval 15
+  ServerAliveCountMax 3
+
+Include ~/.ssh/config.d/*
+
