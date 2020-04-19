@@ -2,6 +2,7 @@
 backup.d/
 
 ## Ignore sensitive data
+conf.d/ssh/authorized_keys
 conf.d/ssh/config.d/*
 conf.d/ssh/keys.d/*
 conf.d/ssh/known_hosts
