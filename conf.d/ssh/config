@@ -1,5 +1,6 @@
 
 Host *
+  Compression yes
   ControlMaster auto
   ControlPath ~/.ssh/socket.d/master-%r@%h:%p
   ControlPersist 5
