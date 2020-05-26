@@ -30,6 +30,7 @@ dotfiles: $(dotlinks)
 
 .PHONY: install
 install: dotfiles
+	chmod 0600 ${CONFDIR}/ssh/config
 
 .PHONY: uninstall
 uninstall:
