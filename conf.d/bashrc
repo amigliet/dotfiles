@@ -18,6 +18,9 @@ then
 fi
 export PATH
 
+# Set umask
+umask 0022
+
 # Don't put duplicate lines in the history
 # Don't save commands which start with a space
 HISTCONTROL=ignoredups:erasedups:ignorespace
