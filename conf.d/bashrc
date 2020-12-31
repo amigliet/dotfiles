@@ -25,8 +25,8 @@ umask 0022
 # Don't save commands which start with a space
 HISTCONTROL=ignoredups:erasedups:ignorespace
 HISTTIMEFORMAT="%Y/%m/%d %R "
-HISTSIZE=10000
-HISTFILESIZE=10000
+HISTSIZE=65535
+#HISTFILESIZE=65535
 
 shopt -s histappend    # Append to the history file, don't overwrite it
 shopt -s histreedit    # Re-edit a failed history substitution
