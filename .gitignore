@@ -1,6 +1,12 @@
 ## Ignore backup folder
 backup.d/
 
+## Track only useful configurations
+conf.d/config/*
+!conf.d/config/i3
+!conf.d/config/rofi
+conf.d/config/i3/images/*
+
 ## Ignore sensitive data
 conf.d/ssh/authorized_keys
 conf.d/ssh/config.d/*
