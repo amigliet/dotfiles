@@ -1,0 +1,10 @@
+! ~/.config/rofi/config
+
+! General
+rofi.modi: drun,run
+
+! Layout
+rofi.lines: 10
+rofi.columns: 3
+rofi.line-padding: 1
+

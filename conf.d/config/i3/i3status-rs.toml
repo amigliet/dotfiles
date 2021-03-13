@@ -1,0 +1,47 @@
+theme = "bad-wolf"
+icons = "awesome"
+
+[[block]]
+block = "keyboard_layout"
+driver = "setxkbmap"
+interval = 1
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
+
+[[block]]
+block = "cpu"
+interval = 1
+info = 40
+warning = 70
+critical = 90
+
+[[block]]
+block = "load"
+interval = 1
+format = "{1m}"
+
+[[block]]
+block = "net"
+device = "wlp5s0"
+interval = 5
+ip = false
+speed_up = false
+speed_down = false
+ssid = true
+
+[[block]]
+block = "time"
+interval = 60
+format = "%A %d/%m %R"
+
+[[block]]
+block = "battery"
+interval = 10
+
