@@ -40,6 +40,12 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+# XRand
+bindsym XF86Display  exec --no-startup-id $HOME/.config/i3/bin/xrandr_wrapper_rofi.sh
+bindsym $mod+Shift+m exec --no-startup-id $HOME/.config/i3/bin/xrandr_wrapper_rofi.sh
+# Switch quickly to internal screen only (default)
+bindsym $mod+XF86Display exec --no-startup-id $HOME/.config/i3/bin/xrandr_wrapper.sh
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
