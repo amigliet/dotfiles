@@ -4,7 +4,7 @@ icons = "awesome"
 [[block]]
 block = "keyboard_layout"
 driver = "setxkbmap"
-interval = 1
+interval = 5
 
 [[block]]
 block = "sound"

@@ -26,7 +26,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+d exec "rofi -modi drun,run -show drun"
 
 # Change keyboard layout
-bindsym Mod4+space exec $HOME/.config/i3/bin/swap_xkb_keymap
+bindsym Mod4+space exec $HOME/.config/i3/bin/swap_xkb_keymap.sh
 
 # Lock X display
 bindsym Mod4+l exec i3lock --ignore-empty-password
