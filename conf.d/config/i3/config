@@ -40,6 +40,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+# Screen brightness
+bindsym XF86MonBrightnessUp   exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+
 # XRand
 bindsym XF86Display  exec --no-startup-id $HOME/.config/i3/bin/xrandr_wrapper_rofi.sh
 bindsym $mod+Shift+m exec --no-startup-id $HOME/.config/i3/bin/xrandr_wrapper_rofi.sh

@@ -10,6 +10,9 @@ interval = 5
 block = "sound"
 
 [[block]]
+block = "backlight"
+
+[[block]]
 block = "memory"
 display_type = "memory"
 format_mem = "{Mup}%"
