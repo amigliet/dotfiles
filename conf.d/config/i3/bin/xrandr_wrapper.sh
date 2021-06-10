@@ -13,6 +13,10 @@ case "$1" in
     xrandr --output "$INTMON" --off --output "$EXTMON" --auto --primary
     i3-msg restart
     ;;
+  "above")
+    xrandr --output "$INTMON" --auto --primary --output "$EXTMON" --auto --above "$INTMON"
+    i3-msg restart
+    ;;
   "extleft")
     xrandr --output "$INTMON" --auto --primary --output "$EXTMON" --auto --left-of "$INTMON"
     i3-msg restart
