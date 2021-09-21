@@ -2,7 +2,7 @@
 
 # TODO: define variables in a more manageable way
 INTMON="eDP-1"
-EXTMON="HDMI-1"
+EXTMON="$(xrandr | awk -v p=$INTMON 'p!=$1 && / connected/ { print $1 }')"
 
 case "$1" in
   "intonly")
