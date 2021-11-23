@@ -1,6 +1,6 @@
-# ~/.bash/environment
+# ~/.bashrc.d/exports
 
-export GOPATH="$HOME/.go"
+export EDITOR="/usr/bin/vim"
 
 #export http_proxy=
 #export https_proxy=

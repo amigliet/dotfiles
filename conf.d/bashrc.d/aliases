@@ -1,0 +1,12 @@
+# ~/.bashrc.d/aliases
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias zgrep='zgrep --color=auto'
+
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+
+alias ssh='TERM=xterm ssh'
+

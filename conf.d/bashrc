@@ -12,8 +12,7 @@ fi
 ###############################################################################
 # User specific environment
 
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
@@ -23,57 +22,27 @@ umask 0022
 
 # Don't put duplicate lines in the history
 # Don't save commands which start with a space
-HISTCONTROL=ignoredups:erasedups:ignorespace
+HISTCONTROL=ignoreboth:erasedups
 HISTTIMEFORMAT="%Y/%m/%d %R "
 HISTSIZE=65535
-#HISTFILESIZE=65535
 
 shopt -s histappend    # Append to the history file, don't overwrite it
 shopt -s histreedit    # Re-edit a failed history substitution
 shopt -s histverify    # Verify an history substitution before executing
 
-# Begin prompt configuration
-PS1='[\u@\h \W]'
-
-if ! type -t __git_ps1 &>/dev/null && \
-   [ -e /usr/share/git-core/contrib/completion/git-prompt.sh ]
-then
-    source /usr/share/git-core/contrib/completion/git-prompt.sh
-fi
-
-if type -t __git_ps1 &>/dev/null
-then
-    PS1="$PS1"'$(__git_ps1 " [%s]")'
-    export GIT_PS1_SHOWDIRTYSTATE=1
-    export GIT_PS1_SHOWUNTRACKEDFILES=1
-fi
-
-# End prompt configuration
-if [ "$UID" -gt 0 ]
-then
-    PS1="$PS1"'$ '
-else
-    PS1="$PS1"'# '
-fi
-
-export EDITOR="/usr/bin/vim"
-
 ###############################################################################
 # User specific aliases, environment and functions
 
-if [ -r "$HOME/.bash/aliases" ]
-then
-    source "$HOME/.bash/aliases"
-fi
+declare -a rcfiles=(
+  "aliases"
+  "exports"
+  "functions"
+  "prompt.bash"
+)
 
-if [ -r "$HOME/.bash/environment" ]
-then
-    source "$HOME/.bash/environment"
-fi
-
-if [ -r "$HOME/.bash/functions" ]
-then
-    source "$HOME/.bash/functions"
-    PROMPT_COMMAND=_bash_history_sync
-fi
-
+for rc in ${rcfiles[@]}; do
+  if [ -r "$HOME/.bashrc.d/$rc" ]; then
+    source "$HOME/.bashrc.d/$rc"
+  fi
+done
+unset rc rcfiles

@@ -1,4 +1,4 @@
-# ~/.bash/functions
+# ~/.bashrc.d/functions
 
 _bash_history_sync() {
     builtin history -a
@@ -20,6 +20,7 @@ man() {
     LESS_TERMCAP_so="$(tput bold; tput setaf 220)" \
     LESS_TERMCAP_ue="$(tput sgr0)" \
     LESS_TERMCAP_us="$(tput smul; tput bold; tput setaf 37)" \
+    SAFE_TERMCAP_RESET="$(tput sgr0)" \
     GROFF_NO_SGR=1 \
     man "$@"
 }
